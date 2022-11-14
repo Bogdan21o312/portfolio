@@ -1,0 +1,99 @@
+@use "sass:math";
+@import "src/assets/style/Style.module";
+
+// Base Style ====================================================================================================
+
+.Base {
+  display: flex;
+  @include adaptiveValue("gap", 20, 10);
+  row-gap: rem(10);
+  align-items: center;
+}
+
+// Link Style ====================================================================================================
+
+.Link {
+  transition: all 0.3s ease 0s;
+  @media (any-hover: hover) {
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+// Logo ====================================================================================================
+
+.Logo {
+  @include adaptiveValue("min-width", 60, 50);
+  @include adaptiveValue("min-height", 60, 50);
+  @media (max-width: em(767.98)) {
+    display: none;
+  }
+
+  path {
+    fill: $mainColor;
+  }
+}
+
+// Big sizes ====================================================================================================
+
+.Big {
+
+  @include adaptiveValue("font-size", 56, 54);
+  line-height: math.div(60, 56);
+  font-weight: 700;
+  letter-spacing: 0.018rem;
+
+}
+
+// Medium sizes ====================================================================================================
+
+.Medium {
+  @include adaptiveValue("font-size", 28, 24);
+  line-height: math.div(31, 28);
+  letter-spacing: 0.0107rem;
+
+}
+
+// Small sizes ====================================================================================================
+
+.Small {
+  @include adaptiveValue("font-size", 21, 20);
+  line-height: math.div(29, 21);
+  letter-spacing: 0.014rem;
+}
+
+// Colors ====================================================================================================
+
+.Orange {
+  color: $orangeColor;
+}
+
+.Red {
+  color: $redColor;
+}
+
+.Blue {
+  color: $blueColor;
+}
+
+// Remove ====================================================================================================
+
+.Remove {
+  display: none;
+}
+
+// White theme ====================================================================================================
+
+
+.White .Blue {
+  color: $lightblueColor;
+}
+
+.White {
+  color: $lightColor;
+
+  path {
+    fill: $lightColor;
+  }
+}
