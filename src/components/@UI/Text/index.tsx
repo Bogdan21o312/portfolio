@@ -7,22 +7,20 @@ interface TextProps {
     to?: string,
     color?: string,
     size?: string
-    mainColor?: string
 }
 
-export const Text: FC<TextProps> = ({children, to, color, size, mainColor}) => {
-    const MainColor = `${mainColor === 'white' ? classes.White : ''}`
-    const Color = `${color === 'red' ? classes.Red : ''}${color === 'orange' ? classes.Orange : ''}${color === 'blue' ? classes.Blue : ''}`
+export const Text: FC<TextProps> = ({children, to, color, size}) => {
+    const Color = `${color === 'pink' ? classes.Pink : classes.Pink}`
     const Size = `${size === 'big' ? classes.Big : ''}${size === 'medium' ? classes.Medium : ''}${size === 'small' ? classes.Small : ''}`
     return (
         to
             ?
-            <Link to={to} className={`${classes.Base} ${MainColor} ${Size} ${classes.Link}`}>
-                <span className={`${Color}`}>{children}</span>
+            <Link to={to} className={`${classes.Base} ${Color} ${Size} ${classes.Link}`}>
+                {children}
             </Link>
             :
-            <div className={`${classes.Base} ${MainColor} ${Size}`}>
-                <span className={`${Color}`}>{children}</span>
+            <div className={`${classes.Base} ${Size}`}>
+                {children}
             </div>
     )
 }
